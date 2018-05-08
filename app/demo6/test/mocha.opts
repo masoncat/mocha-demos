@@ -1,0 +1,3 @@
+--require ../../node_modules/babel-core/register
+-t 5000
+-s 1000

@@ -1,7 +1,7 @@
 /**
  * Created by wm.liu on 2018/5/8.
  */
-var add = require('./index');
+var add = require('./add');
 var expect = require('chai').expect;
 describe('测试',function () {
     it('1加1应该等于2',function () {
