@@ -1,1 +1,0 @@
---compilers js:babel-core/register // 注意这里要执行当前项目的mocha，否则找不到全局的babel-core，报not find
