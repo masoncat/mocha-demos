@@ -40,12 +40,12 @@ test('the data is peanut butter', async () => {
     expect(data).toBe('peanut butter');
 });
 
-var a;
+var a1;
 beforeEach(() => {
-     a = 1;
+    a1 = 1;
 });
 test('beforeEeach', () => {
-    expect(a + 2).toBe(3);
+    expect(a1 + 2).toBe(3);
 });
 
 describe('outer', () => {
@@ -85,3 +85,38 @@ describe('outer', () => {
 // test for describe inner 1
 // test for describe outer
 // test for describe inner 2
+test('mock',()=>{
+    function getDouble(val, callback) {
+        if(val < 0) {
+            return;
+        }
+        setTimeout(() => {
+            callback(val * val);
+        }, 100);
+    };
+
+    const mockFn = jest.fn();
+    getDouble(10, mockFn);
+    console.log('=======')
+    console.log(mockFn);
+    expect(mockFn).not.toHaveBeenCalled()
+    setTimeout(() => {
+        expect(mockFn).toHaveBeenCalledTimes(1);
+        expect(mockFn).toHaveBeenCalledWith(20);
+    }, 110);
+});
+
+test('mock function',()=>{
+    const filterTestFn = jest.fn();
+
+// Make the mock return `true` for the first call,
+// and `false` for the second call
+    filterTestFn.mockReturnValueOnce(true).mockReturnValueOnce(false);
+
+    const result = [11, 12].filter(filterTestFn);
+
+    console.log(result);
+// > [11]
+    console.log(filterTestFn.mock.calls);
+// > [ [11], [12] ]
+});
