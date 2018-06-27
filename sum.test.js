@@ -25,3 +25,23 @@ test('compiling android goes as expected', () => {
     // expect(compileAndroidCode).toThrow('you are using the wrong JDK');
     expect(compileAndroidCode).toThrow(/JDK/);
 });
+
+function sleep(s) {
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve('peanut butte1r');
+        },s);
+    });
+}
+
+async function fetchData() {
+    console.log('start: '+new Date().getSeconds());
+    return await sleep(2000);
+    console.log('end:' +new Date().getSeconds());
+}
+
+test('the data is peanut butter', async () => {
+    expect.assertions(1);
+    const data = await fetchData();
+    expect(data).toBe('peanut butter');
+});
