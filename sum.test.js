@@ -6,5 +6,9 @@ test('adds 1 + 2 to equal 3', () => {
 test('test expect',()=>{
     const n = null;
     expect(n).toBeNull();
-    expect(n).toBeDefined;
+    expect(n).toBeDefined();
+});
+test('test number',()=>{
+    const num = 0.3;
+    expect(0.1+0.2).toBeCloseTo(num);
 });
