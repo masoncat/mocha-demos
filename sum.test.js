@@ -3,14 +3,14 @@ const sum = require('./sum');
 test('adds 1 + 2 to equal 3', () => {
     expect(sum(1, 2)).toBe(4);
 });
-test('test expect',()=>{
+test('test expect', () => {
     const n = null;
     expect(n).toBeNull();
     expect(n).toBeDefined();
 });
-test('test number',()=>{
+test('test number', () => {
     const num = 0.3;
-    expect(0.1+0.2).toBeCloseTo(num);
+    expect(0.1 + 0.2).toBeCloseTo(num);
 });
 
 function compileAndroidCode() {
@@ -27,21 +27,23 @@ test('compiling android goes as expected', () => {
 });
 
 function sleep(s) {
-    return new Promise((resolve,reject)=>{
-        setTimeout(()=>{
-            resolve('peanut butte1r');
-        },s);
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('peanut butter');
+        }, s);
     });
-}
-
-async function fetchData() {
-    console.log('start: '+new Date().getSeconds());
-    return await sleep(2000);
-    console.log('end:' +new Date().getSeconds());
 }
 
 test('the data is peanut butter', async () => {
     expect.assertions(1);
-    const data = await fetchData();
+    const data = await sleep();
     expect(data).toBe('peanut butter');
+});
+
+var a;
+beforeEach(() => {
+     a = 1;
+});
+test('beforeEeach', () => {
+    expect(a + 2).toBe(3);
 });
