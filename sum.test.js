@@ -139,3 +139,15 @@ test('docblock',()=>{
 // prints an object with two attributes: comments and pragmas.
     console.log(parsed);
 })
+
+test('pretty-format',()=>{
+    const prettyFormat = require('pretty-format');
+
+    const val = {object: {}};
+    val.circularReference = val;
+    val[Symbol('foo')] = 'foo';
+    val.map = new Map([['prop', 'value']]);
+    val.array = [-0, Infinity, NaN];
+
+    console.log(prettyFormat(val));
+});
